@@ -1,0 +1,24 @@
+2021-06-22 23:16:13 [main] [reader] [23] DEBUG com.danko.shape.reader.DataReader - File has been validated
+2021-06-22 23:16:13 [main] [reader] [35] DEBUG com.danko.shape.reader.DataReader - File has been read. Result:[1.0 1.0 1.0 3.0 4.0 5.0, -2.0 2.0 2.0 3.0 4.0 5.0, asd sdf gs ds, -2.0 2.0 2.0 -3.0 4.0 5.0d]
+2021-06-22 23:16:13 [main] [isStringValid] [25] INFO  com.danko.shape.validator.CustomStringValidator - String is valid:-> 1.0 1.0 1.0 3.0 4.0 5.0
+2021-06-22 23:16:13 [main] [isStringValid] [25] INFO  com.danko.shape.validator.CustomStringValidator - String is valid:-> -2.0 2.0 2.0 3.0 4.0 5.0
+2021-06-22 23:16:13 [main] [isStringValid] [22] INFO  com.danko.shape.validator.CustomStringValidator - String is not valid:-> asd sdf gs ds
+2021-06-22 23:16:13 [main] [isStringValid] [22] INFO  com.danko.shape.validator.CustomStringValidator - String is not valid:-> -2.0 2.0 2.0 -3.0 4.0 5.0d
+2021-06-22 23:16:13 [main] [parseStringToDouble] [47] INFO  com.danko.shape.parser.ConeParser - List of Parameters for make Cones has been created.
+2021-06-22 23:16:13 [main] [createListOfCones] [37] DEBUG com.danko.shape.factory.ConeFactory - Has been made cone...
+2021-06-22 23:16:13 [main] [createListOfCones] [37] DEBUG com.danko.shape.factory.ConeFactory - Has been made cone...
+2021-06-22 23:16:13 [main] [createListOfCones] [39] INFO  com.danko.shape.factory.ConeFactory - List of Cones is created successfully.
+2021-06-22 23:16:13 [main] [calculateVolume] [19] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of volume is successful. Result is 37.69911184307752
+2021-06-22 23:16:13 [main] [calculateLateralSurfaceArea] [29] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 47.12388980384689
+2021-06-22 23:16:13 [main] [calculateArea] [39] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 75.39822368615503
+2021-06-22 23:16:13 [main] [calculateVolume] [19] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of volume is successful. Result is 37.69911184307752
+2021-06-22 23:16:13 [main] [calculateLateralSurfaceArea] [29] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 47.12388980384689
+2021-06-22 23:16:13 [main] [calculateArea] [39] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 75.39822368615503
+2021-06-22 23:16:13 [main] [calculateVolume] [19] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of volume is successful. Result is 141.3716694115407
+2021-06-22 23:16:13 [main] [calculateArea] [39] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 75.39822368615503
+2021-06-22 23:16:13 [main] [calculateLateralSurfaceArea] [29] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 47.12388980384689
+2021-06-22 23:16:13 [main] [updateParameters] [27] INFO  danko.shape.observer.impl.ConeObserverImpl - Parameters of the Cone has been update
+2021-06-22 23:16:13 [main] [calculateVolume] [19] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of volume is successful. Result is 141.3716694115407
+2021-06-22 23:16:13 [main] [calculateArea] [39] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 75.39822368615503
+2021-06-22 23:16:13 [main] [calculateLateralSurfaceArea] [29] INFO  danko.shape.service.impl.ConeCalculateServiceImpl - Calculation of Lateral Surface Area is successful. Result is 47.12388980384689
+2021-06-22 23:16:13 [main] [updateParameters] [27] INFO  danko.shape.observer.impl.ConeObserverImpl - Parameters of the Cone has been update
