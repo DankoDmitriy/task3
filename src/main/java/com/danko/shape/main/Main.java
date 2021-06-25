@@ -9,6 +9,9 @@ import com.danko.shape.observer.impl.ConeObserverImpl;
 import com.danko.shape.parser.ConeParser;
 import com.danko.shape.reader.DataReader;
 import com.danko.shape.repository.ConeRepository;
+import com.danko.shape.repository.ConeSpecification;
+import com.danko.shape.repository.impl.ConeIdSpecification;
+import com.danko.shape.repository.impl.ConeMaxHeightSpecification;
 import com.danko.shape.service.ConeCalculateService;
 import com.danko.shape.service.impl.ConeCalculateServiceImpl;
 
@@ -42,11 +45,19 @@ public class Main {
         }
 
         for (int i = 0; i < repository.size(); i++) {
-            repository.get(i).setHeight(15);
+            repository.get(i).setHeight(15+i);
         }
 
         for (int i = 1; i <= repository.size(); i++) {
             System.out.println(warehouse.get(i).toString());
         }
+
+//        ConeSpecification specification = new ConeIdSpecification(2);
+        ConeSpecification specification = new ConeMaxHeightSpecification(15);
+        List<Cone> resultOfSelect = repository.select(specification);
+        resultOfSelect.forEach(cone -> System.out.println(cone));
+
+
+
     }
 }

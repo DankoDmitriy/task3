@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConeRepository {
     private List<Cone> cones = new ArrayList<>();
@@ -14,11 +15,11 @@ public class ConeRepository {
     }
 
     private static class SingletonHolder {
-        private static final ConeRepository INSTANCE = new ConeRepository();
+        private static final ConeRepository instance = new ConeRepository();
     }
 
     public static ConeRepository getInstance() {
-        return SingletonHolder.INSTANCE;
+        return SingletonHolder.instance;
     }
 
     public int size() {
@@ -73,7 +74,13 @@ public class ConeRepository {
         return cones.addAll(index, collection);
     }
 
-    public void sort(Comparator<? super Cone> collection) {
-        cones.sort(collection);
+    public List<Cone> select(ConeSpecification specification) {
+        List<Cone> result = cones.stream().filter((specification::specify)).collect(Collectors.toList());
+        return result;
+    }
+
+    //FIXME - название переменных - компоратор.
+    public void sort(Comparator<? super Cone> comparator) {
+        cones.sort(comparator);
     }
 }

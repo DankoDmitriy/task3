@@ -1,7 +1,7 @@
 package com.danko.shape.service;
 
 import com.danko.shape.entity.Cone;
-import com.danko.shape.excaption.ConeException;
+import com.danko.shape.exception.ConeException;
 
 public interface ConeLocationService {
     boolean isBaseOnCoordinateLineXY(Cone cone) throws ConeException;

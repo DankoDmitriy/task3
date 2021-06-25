@@ -1,6 +1,6 @@
 package com.danko.shape.parser;
 
-import com.danko.shape.excaption.ConeException;
+import com.danko.shape.exception.ConeException;
 import com.danko.shape.validator.ConeValidator;
 import com.danko.shape.validator.CustomStringValidator;
 import org.apache.logging.log4j.Level;
@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ConeParser { //FIXME - LOGIC AND REG
+public class ConeParser {
     private static Logger logger = LogManager.getLogger();
     private static final String REG_EXP_STRING_FOR_DOUBLE = "\\s?(-?\\d+\\.\\d+)";
-    private static final int VALID_COUNT_DATA = 6;
+    private static final int VALID_COUNT_DATA = 5;
 
     public List<double[]> parseStringToDouble(List<String> inputArrayString) throws ConeException {
         if (inputArrayString == null || inputArrayString.size() == 0) {

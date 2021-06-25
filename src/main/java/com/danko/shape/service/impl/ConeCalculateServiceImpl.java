@@ -1,7 +1,7 @@
 package com.danko.shape.service.impl;
 
 import com.danko.shape.entity.Cone;
-import com.danko.shape.excaption.ConeException;
+import com.danko.shape.exception.ConeException;
 import com.danko.shape.service.ConeCalculateService;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +25,7 @@ public class ConeCalculateServiceImpl implements ConeCalculateService {
         if (cone == null) {
             throw new ConeException("Calculation of Lateral Surface Area cannot be completed. Argument contains null");
         }
-        double area = Math.PI * cone.getRadius() * cone.getGeneratrix();
+        double area = Math.PI * cone.getRadius() * calculateGeneratrix(cone);
         logger.log(Level.INFO, "Calculation of Lateral Surface Area is successful. Result is " + area);
         return area;
     }
@@ -35,8 +35,12 @@ public class ConeCalculateServiceImpl implements ConeCalculateService {
         if (cone == null) {
             throw new ConeException("Calculation of Area cannot be completed. Argument contains null");
         }
-        double area = Math.PI * cone.getRadius() * (cone.getGeneratrix() + cone.getRadius());
+        double area = Math.PI * cone.getRadius() * (calculateGeneratrix(cone) + cone.getRadius());
         logger.log(Level.INFO, "Calculation of Lateral Surface Area is successful. Result is " + area);
         return area;
+    }
+
+    private double calculateGeneratrix(Cone cone) {
+        return Math.sqrt(Math.pow(cone.getRadius(), 2.0) + Math.pow(cone.getHeight(), 2.0));
     }
 }

@@ -14,6 +14,18 @@ public class ConeParameter {
         this.lateralSurfaceArea = lateralSurfaceArea;
     }
 
+    public double getVolume() {
+        return volume;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public double getLateralSurfaceArea() {
+        return lateralSurfaceArea;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

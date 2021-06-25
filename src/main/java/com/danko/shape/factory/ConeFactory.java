@@ -2,7 +2,7 @@ package com.danko.shape.factory;
 
 import com.danko.shape.entity.Cone;
 import com.danko.shape.entity.Point;
-import com.danko.shape.excaption.ConeException;
+import com.danko.shape.exception.ConeException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,14 +12,14 @@ import java.util.List;
 
 public class ConeFactory {
     private static Logger logger = LogManager.getLogger();
-    private static final int VALID_COUNT_DATA = 6;
+    private static final int VALID_COUNT_DATA = 5;
 
-    public static Cone createCone(List<Double> parameters) throws ConeException {
-        if (parameters == null || parameters.size() != VALID_COUNT_DATA) {
+    public static Cone createCone(double[] parameters) throws ConeException {
+        if (parameters == null || parameters.length != VALID_COUNT_DATA) {
             throw new ConeException("Unable to create Cone object." + "Argument contains null or wrong number of parameters.");
         }
-        Point circleCenter = new Point(parameters.get(0), parameters.get(1), parameters.get(2));
-        Cone cone = new Cone(circleCenter, parameters.get(3), parameters.get(4), parameters.get(5));
+        Point circleCenter = new Point(parameters[0], parameters[1], parameters[2]);
+        Cone cone = new Cone(circleCenter, parameters[3], parameters[4]);
         logger.log(Level.INFO, "Cone is created successfully: " + cone);
         return cone;
     }
@@ -29,12 +29,10 @@ public class ConeFactory {
             throw new ConeException("Unable to create Cone object. Argument contains null or empty.");
         }
         List<Cone> listOfCones = new ArrayList<>();
-
         for (double[] parameter : parameters) {
-            Point circleCenter = new Point(parameter[0], parameter[1], parameter[2]);
-            Cone cone = new Cone(circleCenter, parameter[3], parameter[4], parameter[5]);
+            Cone cone = createCone(parameter);
             listOfCones.add(cone);
-            logger.log(Level.DEBUG, "Has been made cone...");
+            logger.log(Level.DEBUG, "Has been made cone..." + cone);
         }
         logger.log(Level.INFO, "List of Cones is created successfully.");
         return listOfCones;

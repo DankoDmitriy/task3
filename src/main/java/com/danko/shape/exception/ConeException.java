@@ -1,4 +1,4 @@
-package com.danko.shape.excaption;
+package com.danko.shape.exception;
 
 public class ConeException extends Exception {
     public ConeException() {

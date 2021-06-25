@@ -11,7 +11,7 @@ public class ConeEvent extends EventObject {
      * @param source The object on which the Event initially occurred.
      * @throws IllegalArgumentException if source is null.
      */
-    public ConeEvent(Object source) {
+    public ConeEvent(Cone source) {
         super(source);
     }
 

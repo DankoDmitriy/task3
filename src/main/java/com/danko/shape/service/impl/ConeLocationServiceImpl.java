@@ -1,7 +1,7 @@
 package com.danko.shape.service.impl;
 
 import com.danko.shape.entity.Cone;
-import com.danko.shape.excaption.ConeException;
+import com.danko.shape.exception.ConeException;
 import com.danko.shape.service.ConeLocationService;
 
 public class ConeLocationServiceImpl implements ConeLocationService {
