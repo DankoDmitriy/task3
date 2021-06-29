@@ -2,10 +2,7 @@ package com.danko.shape.repository;
 
 import com.danko.shape.entity.Cone;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ConeRepository {
@@ -50,6 +47,10 @@ public class ConeRepository {
         return cones.get(index);
     }
 
+    public List<Cone> getAll () {
+        return new ArrayList<Cone>(cones);
+    }
+
     public Cone set(int index, Cone element) {
         return cones.set(index, element);
     }
@@ -74,12 +75,11 @@ public class ConeRepository {
         return cones.addAll(index, collection);
     }
 
-    public List<Cone> select(ConeSpecification specification) {
+    public List<Cone> query(ConeSpecification specification) {
         List<Cone> result = cones.stream().filter((specification::specify)).collect(Collectors.toList());
         return result;
     }
 
-    //FIXME - название переменных - компоратор.
     public void sort(Comparator<? super Cone> comparator) {
         cones.sort(comparator);
     }

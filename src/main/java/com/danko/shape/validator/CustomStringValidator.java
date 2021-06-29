@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomStringValidator { //FIXME - REGS
+public class CustomStringValidator {
     private static Logger logger = LogManager.getLogger();
     private static final String REG_EXP_NOT_VALIDATION_STRING = "\\p{Alpha}+";
 

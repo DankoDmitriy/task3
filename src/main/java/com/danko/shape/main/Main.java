@@ -1,5 +1,7 @@
 package com.danko.shape.main;
 
+import com.danko.shape.comparator.ConeIdComparator;
+import com.danko.shape.comparator.ConeVolumeComparator;
 import com.danko.shape.entity.Cone;
 import com.danko.shape.entity.ConeParameter;
 import com.danko.shape.entity.Warehouse;
@@ -11,7 +13,6 @@ import com.danko.shape.reader.DataReader;
 import com.danko.shape.repository.ConeRepository;
 import com.danko.shape.repository.ConeSpecification;
 import com.danko.shape.repository.impl.ConeIdSpecification;
-import com.danko.shape.repository.impl.ConeMaxHeightSpecification;
 import com.danko.shape.service.ConeCalculateService;
 import com.danko.shape.service.impl.ConeCalculateServiceImpl;
 
@@ -31,7 +32,6 @@ public class Main {
         List<String> lines = dataReader.reader(filepath);
         List<double[]> conesParameters = coneParser.parseStringToDouble(lines);
         List<Cone> cones = ConeFactory.createListOfCones(conesParameters);
-        repository.addAll(cones);
 
         for (Cone cone : cones) {
             double volume = coneCalculateService.calculateVolume(cone);
@@ -39,25 +39,24 @@ public class Main {
             double area = coneCalculateService.calculateArea(cone);
             warehouse.put(cone.getConeId(), new ConeParameter(volume, area, lateralSurfaceArea));
         }
+        repository.addAll(cones);
 
         for (int i = 0; i < repository.size(); i++) {
             repository.get(i).attach(observer);
         }
 
         for (int i = 0; i < repository.size(); i++) {
-            repository.get(i).setHeight(15+i);
+            repository.get(i).setHeight(16 + (i + 1));
         }
 
         for (int i = 1; i <= repository.size(); i++) {
-            System.out.println(warehouse.get(i).toString());
+            System.out.println("Id:" + i + " " + warehouse.get(i).toString());
         }
 
-//        ConeSpecification specification = new ConeIdSpecification(2);
-        ConeSpecification specification = new ConeMaxHeightSpecification(15);
-        List<Cone> resultOfSelect = repository.select(specification);
+        ConeSpecification specification = new ConeIdSpecification(2);
+        List<Cone> resultOfSelect = repository.query(specification);
         resultOfSelect.forEach(cone -> System.out.println(cone));
-
-
-
+        repository.sort(new ConeVolumeComparator().thenComparing(new ConeIdComparator()));
+        repository.getAll().forEach(cone -> System.out.println(cone));
     }
 }
