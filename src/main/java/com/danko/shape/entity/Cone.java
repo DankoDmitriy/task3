@@ -80,7 +80,6 @@ public class Cone implements ConeObservable {
 
         Cone cone = (Cone) o;
 
-        if (coneId != cone.coneId) return false;
         if (Double.compare(cone.radius, radius) != 0) return false;
         if (Double.compare(cone.height, height) != 0) return false;
         if (circleCenter != null ? !circleCenter.equals(cone.circleCenter) : cone.circleCenter != null) return false;

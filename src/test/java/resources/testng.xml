@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Cone Shape tests" verbose="1">
+    <test name="Test repository">
+        <classes>
+            <class name="com.danko.shape.repository.ConeRepositoryTest"/>
+        </classes>
+    </test>
+
+    <test name="Test factory">
+        <classes>
+            <class name="com.danko.shape.factory.ConeFactoryTest"/>
+        </classes>
+    </test>
+
+    <test name="Test parser">
+        <classes>
+            <class name="com.danko.shape.parser.ConeParserTest"/>
+        </classes>
+    </test>
+
+    <test name="Test reader">
+        <classes>
+            <class name="com.danko.shape.reader.DataReaderTest"/>
+        </classes>
+    </test>
+
+    <test name="Test service">
+        <classes>
+            <class name="com.danko.shape.service.impl.ConeCalculateServiceImplTest"/>
+        </classes>
+    </test>
+
+    <test name="Test validator">
+        <classes>
+            <class name="com.danko.shape.validator.CustomFileValidatorTest"/>
+            <class name="com.danko.shape.validator.CustomStringValidatorTest"/>
+            <class name="com.danko.shape.validator.ConeValidatorTest"/>
+        </classes>
+    </test>
+</suite>

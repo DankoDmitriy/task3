@@ -24,6 +24,6 @@ public class CustomStringValidator {
             return true;
         }
         logger.log(Level.INFO, "String is not valid:-> " + inputString);
-        return true;
+        return false;
     }
 }
